@@ -21,6 +21,7 @@
         <springBootVersion>2.2.6.RELEASE</springBootVersion>
         <lombok.version>1.18.12</lombok.version>
         <postgresql.version>42.2.11</postgresql.version>
+        <spring.crypto.version>4.2.13.RELEASE</spring.crypto.version>
     </properties>
 
     <!--    //TODO move versions to properties-->
@@ -42,6 +43,12 @@
             <scope>runtime</scope>
             <optional>true</optional>
             <version>${springBootVersion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>${spring.crypto.version}</version>
         </dependency>
 
         <!-- security spring dependency -->

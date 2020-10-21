@@ -1,13 +1,13 @@
 package com.ievgen.iaroshenko.usercore.service.impl;
 
 
-
 import com.ievgen.iaroshenko.usercommon.CreateUserRequest;
 import com.ievgen.iaroshenko.usercore.entity.Role;
 import com.ievgen.iaroshenko.usercore.entity.User;
 import com.ievgen.iaroshenko.usercore.repository.UserRepository;
 import com.ievgen.iaroshenko.usercore.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,7 +17,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Optional<User> findBydId(UUID id) {
@@ -30,8 +31,7 @@ public class UserServiceImpl implements UserService {
                 .firstName(request.getFirstName())
                 .lastName(request.getFirstName())
                 .userName(request.getUserName())
-                .passwordHash(request.getPassword())
-                .passwordHash(request.getPassword())
+                .passwordHash(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .email(request.getEmail())
                 .build()));

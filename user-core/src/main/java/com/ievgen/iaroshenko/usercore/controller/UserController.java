@@ -1,7 +1,6 @@
 package com.ievgen.iaroshenko.usercore.controller;
 
 
-
 import com.ievgen.iaroshenko.usercommon.CreateUserRequest;
 import com.ievgen.iaroshenko.usercore.entity.User;
 import com.ievgen.iaroshenko.usercore.service.UserService;
